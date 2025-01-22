@@ -463,7 +463,17 @@ let
                   addresselem
                 ])
               (subelem "smartcard" [ (subattr "mode" typeString) (subattr "type" typeString) ] [ addresselem ])
-              (subelem "serial" [ (subattr "type" typeString) ] [ targetelem ])
+              (subelem "serial" [ (subattr "type" typeString) ]
+                [
+                  (subelem "source"
+                    [
+                      (subattr "path" typeString)
+                      (subattr "mode" typeString)
+                      (subattr "host" typeString)
+                      (subattr "service" typeInt)
+                    ] [ ])
+                  targetelem
+                ])
               (subelem "console" [ (subattr "type" typeString) ] [ targetelem ])
               (subelem "channel" [ (subattr "type" typeString) ]
                 [
